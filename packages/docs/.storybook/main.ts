@@ -25,5 +25,12 @@ const config: StorybookConfig = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
+  viteFinal: (config, {configType}) => {
+    if (configType === "PRODUCTION") {
+      config.base = '/storybook-study/'
+    }
+
+    return config;
+  }
 };
 export default config;
