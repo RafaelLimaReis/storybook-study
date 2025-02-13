@@ -23,7 +23,10 @@ jobs:
       
       - name: Build storybook
         working-directory: ./packages/docs
-        run: npm run deploy-storybook && touch storybook-static/.nojekyll 
+        run: npm run deploy-storybook
+
+      - working-directory: ./packages/docs
+        run: touch storybook-static/.nojekyll 
 
       - name: Deploy storybook
         working-directory: ./packages/docs
