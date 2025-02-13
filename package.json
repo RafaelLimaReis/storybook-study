@@ -4,12 +4,16 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@changesets/cli": "^2.27.12",
     "turbo": "^2.4.1"
   },
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build --filter=@mystudy-ui/docs && changeset publish"
   },
   "packageManager": "npm@10.8.1",
   "name": "with-vite",
