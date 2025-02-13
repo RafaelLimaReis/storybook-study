@@ -21,7 +21,7 @@ jobs:
 
       - run: npm run build
         env:
-          TURBO_TOKEN: h4HxjGcMpR8wGJuONeOgMor8
+          TURBO_TOKEN: ${{ secrets.NPM_TOKEN }}
           TURBO_TEAM: rafael-limas-projects-54af2445
       
       - name: Build storybook
