@@ -3,7 +3,7 @@ import { Button, Tooltip, TooltipProps } from '@mystudy-ui/react'
 import { PlusCircle } from 'phosphor-react'
 
 export default {
-  title: 'Surfaces/Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   args: {
     children: <Button><PlusCircle weight='bold' /></Button>,
