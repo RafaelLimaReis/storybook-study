@@ -17,21 +17,19 @@ export interface ToastProps {
 export const Toast = ({children, title, description, duration = 5000, isClosable = false, open, setOpen, withProgress = false}: ToastProps) => {
     const [progress, setProgress] = useState(100);
 
-    if (withProgress) {
-        useEffect(() => {
-            if (!open) return;
-    
-            setProgress(100);
-    
-            const interval = 10;
-            const decrementValue = 100 / (duration / interval);
-            const timer = setInterval(() => {
-                setProgress(prevProgress => Math.max(prevProgress - decrementValue, 0));
-            }, interval);
-    
-            return () => clearInterval(timer); 
-        }, [duration, open])
-    }
+    useEffect(() => {
+        if (!withProgress || !open) return;
+
+        setProgress(100);
+
+        const interval = 10;
+        const decrementValue = 100 / (duration / interval);
+        const timer = setInterval(() => {
+            setProgress(prevProgress => Math.max(prevProgress - decrementValue, 0));
+        }, interval);
+
+        return () => clearInterval(timer); 
+    }, [duration, open, withProgress])
     
     return (
         <Provider swipeDirection="right" duration={duration}>

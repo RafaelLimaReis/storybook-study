@@ -1,5 +1,11 @@
 # @mystudy-ui/react
 
+## 2.3.1
+
+### Patch Changes
+
+- Fix component toast
+
 ## 2.3.0
 
 ### Minor Changes

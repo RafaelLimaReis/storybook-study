@@ -11,6 +11,35 @@ export default {
     description: 'Cadastro realizado com sucesso!',
     open: false,
     isClosable: true,
+    duration: 5000,
+    withProgress: false,
+  },
+  argTypes: {
+    open: {
+      description: 'Estado atual do toast, aberto ou fechado.'
+    },
+    isClosable: {
+      description: 'Se o tooltip pode ser fechado antes do tempo',
+      table: {
+        type: { summary: 'boolean' }
+      }
+    },
+    duration: {
+      description: 'Tempo em ms para o tooltip desaparecer (em ms)',
+      table: {
+        defaultValue: { summary: '5000ms' },
+        type: {summary: 'number'}
+      },
+      control: {
+        type: 'number'
+      }
+    },
+    withProgress: {
+      description: 'Se será adicionado uma barra de progresso para mostrar quando a toast sera fechada.',
+      table: {
+        type: { summary: 'boolean' }
+      }
+    }
   }
 } as Meta<ToastProps>
 
