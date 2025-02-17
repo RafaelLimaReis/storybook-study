@@ -1,0 +1,3 @@
+import{j as t}from"./index-BY56YOu8.js";import{useMDXComponents as i}from"./index-CHrGa5Tm.js";import{M as r}from"./index-Cuk9ngVu.js";import"./_commonjsHelpers-CqkleIqs.js";import"./index-CQwh6Daz.js";import"./index-_2TAQcTa.js";import"./iframe-8hAT47oL.js";import"./index-CNxgJDzb.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function e(n){const o={h1:"h1",p:"p",...i(),...n.components};return t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"Home"}),`
+`,t.jsx(o.h1,{id:"ignite-ui",children:"Ignite UI"}),`
+`,t.jsx(o.p,{children:"Design System do Ignite"})]})}function f(n={}){const{wrapper:o}={...i(),...n.components};return o?t.jsx(o,{...n,children:t.jsx(e,{...n})}):e(n)}export{f as default};
