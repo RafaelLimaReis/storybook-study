@@ -68,3 +68,25 @@ export const LessTimeClose: StoryObj<ToastProps> = {
     );
   }
 };
+
+export const withProgress: StoryObj<ToastProps> = {
+  args: {
+    title: 'Cadastro realizado',
+    description: 'Cadastro realizado com sucesso!',
+    open: false,
+    isClosable: false,
+    duration: 2000,
+    withProgress: true
+  },
+  render: (args) => {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <div>
+        <Button onClick={() => setOpen(true)}><PlusCircle weight='bold' /></Button>
+
+        <Toast {...args} open={open} setOpen={setOpen} />
+      </div>
+    );
+  }
+};

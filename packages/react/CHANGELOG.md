@@ -1,5 +1,11 @@
 # @mystudy-ui/react
 
+## 2.3.0
+
+### Minor Changes
+
+- add component toast, and tooltip
+
 ## 2.2.0
 
 ### Minor Changes

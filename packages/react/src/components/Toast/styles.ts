@@ -35,13 +35,15 @@ export const ViewportContainer = styled(Toast.Viewport, {
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '100vh',
+    width: '360px',
     margin: '0',
     listStyle: 'none',
     zIndex: '2147483647',
-    outline: 'none'
+    outline: 'none',
 })
 
 export const ToastContainer = styled(Toast.Root, {
+    position: 'relative',
     background: '$gray800',
     padding: '$3 $5',
     borderRadius: '$sm',
@@ -92,4 +94,14 @@ export const ToastClose = styled('button', {
     height: '$5',
     cursor: 'pointer',
     color: '$gray200'
+})
+
+export const Progress = styled('span', {
+    width: 'var(--width-progress)',
+    borderRadius: '0 0 $sm $sm',
+    height: '$1',
+    background: '$white',
+    position: 'absolute',
+    bottom: '0',
+    left: '0'
 })

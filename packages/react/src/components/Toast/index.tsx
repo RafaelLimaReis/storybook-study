@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { Action, Provider } from "@radix-ui/react-toast";
-import { ToastClose, ToastContainer, ToastDescription, ToastTitle, ViewportContainer } from "./styles";
+import { ToastClose, ToastContainer, ToastDescription, ToastTitle, ViewportContainer, Progress } from "./styles";
 import { X } from "phosphor-react";
 
 export interface ToastProps {
@@ -10,10 +10,29 @@ export interface ToastProps {
     isClosable?: boolean
     duration?: number
     open: boolean
+    withProgress?: boolean
     setOpen: (value: boolean) => void
 }
 
-export const Toast = ({children, title, description, duration = 5000,isClosable = false, open, setOpen}: ToastProps) => {
+export const Toast = ({children, title, description, duration = 5000, isClosable = false, open, setOpen, withProgress = false}: ToastProps) => {
+    const [progress, setProgress] = useState(100);
+
+    if (withProgress) {
+        useEffect(() => {
+            if (!open) return;
+    
+            setProgress(100);
+    
+            const interval = 10;
+            const decrementValue = 100 / (duration / interval);
+            const timer = setInterval(() => {
+                setProgress(prevProgress => Math.max(prevProgress - decrementValue, 0));
+            }, interval);
+    
+            return () => clearInterval(timer); 
+        }, [duration, open])
+    }
+    
     return (
         <Provider swipeDirection="right" duration={duration}>
             {children}
@@ -29,6 +48,7 @@ export const Toast = ({children, title, description, duration = 5000,isClosable 
                     )}
                 </ToastTitle>
                 <ToastDescription>{description}</ToastDescription>
+                {withProgress && <Progress css={{ '--width-progress': progress + '%' }}/>}
             </ToastContainer>
             <ViewportContainer />
         </Provider>
